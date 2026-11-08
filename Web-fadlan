@@ -1,0 +1,1166 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101114">
+<title>MHD Fadlan Qaddafi — Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #101114;
+    --surface: #17191e;
+    --surface2: #1d2027;
+    --text: #f1f2f4;
+    --muted: #969ba6;
+    --line: #292c34;
+    --accent: #76a9ff;
+    --accent-soft: rgba(118,169,255,.12);
+}
+
+body.light {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --surface2: #edf0f5;
+    --text: #17191e;
+    --muted: #666e7b;
+    --line: #e1e4e9;
+    --accent: #2769d8;
+    --accent-soft: rgba(39,105,216,.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    transition: background .3s, color .3s;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: auto;
+    height: 76px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+    transition: .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-btn, .menu-btn {
+    width: 39px;
+    height: 39px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* GENERAL */
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+section {
+    padding: 105px 0;
+}
+
+.section-label {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(29px, 4vw, 39px);
+    line-height: 1.25;
+    letter-spacing: -1.5px;
+}
+
+.section-desc {
+    color: var(--muted);
+    max-width: 560px;
+    font-size: 14px;
+    margin-top: 13px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 110px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    right: -130px;
+    top: 15%;
+    background: var(--accent);
+    opacity: .07;
+    filter: blur(120px);
+    border-radius: 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 7px 13px;
+    border-radius: 30px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #53c98b;
+    box-shadow: 0 0 10px #53c98b;
+}
+
+.hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(43px, 7.5vw, 83px);
+    font-weight: 800;
+    letter-spacing: -4px;
+    line-height: 1.08;
+    max-width: 800px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 550px;
+    margin-top: 24px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .25s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #101114;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--accent-soft);
+}
+
+.btn-outline {
+    border: 1px solid var(--line);
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.hero-bottom {
+    margin-top: 80px;
+    padding-top: 23px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 65px;
+    margin-top: 45px;
+    align-items: start;
+}
+
+.profile-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.profile-initial {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 250px;
+    border-radius: 10px;
+    background: var(--surface2);
+    display: grid;
+    place-items: center;
+    font-family: 'Manrope', sans-serif;
+    font-size: 75px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -5px;
+}
+
+.profile-caption {
+    margin-top: 20px;
+}
+
+.profile-caption h3 {
+    font-size: 17px;
+}
+
+.profile-caption p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+
+.info-list {
+    border-top: 1px solid var(--line);
+    margin-top: 25px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+}
+
+.info-row span:first-child {
+    color: var(--muted);
+}
+
+.info-row span:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* SKILLS */
+
+.skills-section {
+    background: var(--surface);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg);
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.skill-icon {
+    font-size: 25px;
+    margin-bottom: 17px;
+}
+
+.skill-card h3 {
+    font-size: 15px;
+    margin-bottom: 9px;
+}
+
+.skill-card p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* EXPERIENCE */
+
+.timeline {
+    margin-top: 42px;
+    border-left: 1px solid var(--line);
+    margin-left: 7px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 37px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    left: -36px;
+    top: 7px;
+    box-shadow: 0 0 12px var(--accent-soft);
+}
+
+.timeline-date {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.timeline-item h3 {
+    font-size: 17px;
+    margin: 8px 0;
+}
+
+.timeline-item p {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 600px;
+}
+
+/* PROJECTS */
+
+.projects-section {
+    background: var(--surface);
+}
+
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.filter-btn {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 8px 16px;
+    border-radius: 7px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--accent);
+    color: #101114;
+    border-color: var(--accent);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px;
+}
+
+.project-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.project-card.hide {
+    display: none;
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.project-card h3 {
+    margin: 17px 0 10px;
+    font-size: 18px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 13px;
+    min-height: 68px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 22px;
+}
+
+.project-tags span {
+    font-size: 10px;
+    padding: 5px 9px;
+    border-radius: 5px;
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+/* CONTACT */
+
+.contact-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 55px 30px;
+    text-align: center;
+}
+
+.contact-box h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: -2px;
+}
+
+.contact-box h2 span {
+    color: var(--accent);
+}
+
+.contact-box p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 15px auto 25px;
+    max-width: 450px;
+}
+
+.contact-note {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--line);
+    padding: 25px;
+}
+
+.footer-inner {
+    max-width: 1050px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+footer strong {
+    color: var(--accent);
+}
+
+/* REVEAL */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 760px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        padding: 20px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero h1 {
+        letter-spacing: -2.5px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .profile-initial {
+        max-height: 220px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+}
+
+@media(max-width: 420px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="#home" class="logo">FQ<span>.</span></a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="theme-btn" id="themeBtn" aria-label="Ganti tema">☼</button>
+            <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="availability">
+                <span class="status-dot"></span>
+                PERSONAL PORTFOLIO
+            </div>
+
+            <p class="section-label">HELLO, I'M</p>
+
+            <h1>
+                MHD Fadlan<br>
+                <span>Qaddafi.</span>
+            </h1>
+
+            <p class="hero-description">
+                A Computer and Network Engineering student
+                interested in IT infrastructure, networking,
+                system administration, and technology.
+                Always learning, exploring, and building.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    Explore Projects ↗
+                </a>
+
+                <a href="#about" class="btn btn-outline">
+                    More About Me
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-bottom">
+            <span>COMPUTER & NETWORK ENGINEERING</span>
+            <span>INDONESIA · 2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container reveal">
+
+        <p class="section-label">01 / ABOUT ME</p>
+        <h2 class="section-title">A little bit <span>about me.</span></h2>
+
+        <div class="about-grid">
+
+            <div class="profile-box">
+                <div class="profile-initial">FQ</div>
+
+                <div class="profile-caption">
+                    <h3>MHD Fadlan Qaddafi</h3>
+                    <p>Computer & Network Engineering</p>
+                </div>
+            </div>
+
+            <div class="about-text">
+
+                <p>
+                    Saya adalah siswa kelas XII SMK jurusan
+                    Teknik Komputer dan Jaringan (TKJ) yang
+                    memiliki ketertarikan pada dunia teknologi
+                    informasi, khususnya jaringan komputer,
+                    administrasi server, dan troubleshooting.
+                </p>
+
+                <p>
+                    Saya senang mempelajari hal baru,
+                    melakukan eksperimen, serta memahami
+                    bagaimana sebuah sistem bekerja.
+                    Bagi saya, setiap permasalahan teknis
+                    merupakan kesempatan untuk belajar.
+                </p>
+
+                <div class="info-list">
+                    <div class="info-row">
+                        <span>Full Name</span>
+                        <span>MHD Fadlan Qaddafi</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Education</span>
+                        <span>Vocational High School</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Major</span>
+                        <span>Computer & Network Engineering</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Interest</span>
+                        <span>IT Infrastructure & Networking</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+    <div class="container reveal">
+
+        <p class="section-label">02 / WHAT I DO</p>
+        <h2 class="section-title">Technical <span>Skills.</span></h2>
+
+        <p class="section-desc">
+            Beberapa bidang teknologi yang saya pelajari
+            dan eksplorasi.
+        </p>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-icon">⌘</div>
+                <h3>Networking</h3>
+                <p>Konfigurasi jaringan, IP addressing,
+                subnetting, VLAN, DHCP, dan routing.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">▣</div>
+                <h3>System Administration</h3>
+                <p>Instalasi, konfigurasi, dan pengelolaan
+                sistem operasi Windows dan Linux.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">⌨</div>
+                <h3>Linux Server</h3>
+                <p>Pengelolaan Debian, SSH, DNS,
+                web server, dan layanan server.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">▤</div>
+                <h3>Virtualization</h3>
+                <p>Eksplorasi virtual machine dan container
+                menggunakan VirtualBox dan Proxmox.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">⌁</div>
+                <h3>Troubleshooting</h3>
+                <p>Analisis masalah perangkat keras,
+                perangkat lunak, dan jaringan komputer.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">〈〉</div>
+                <h3>Web Development</h3>
+                <p>Dasar pengembangan website menggunakan
+                HTML, CSS, dan JavaScript.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="container reveal">
+
+        <p class="section-label">03 / EXPERIENCE</p>
+        <h2 class="section-title">My <span>Journey.</span></h2>
+
+        <p class="section-desc">
+            Pengalaman belajar dan pengembangan kemampuan
+            di bidang teknologi informasi.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <span class="timeline-date">EDUCATION</span>
+                <h3>Vocational High School — TKJ</h3>
+                <p>
+                    Mempelajari jaringan komputer, administrasi
+                    server, sistem operasi, troubleshooting,
+                    serta dasar pengembangan web.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">INTERNSHIP / PKL</span>
+                <h3>Pusat Penelitian Kelapa Sawit</h3>
+                <p>
+                    Melaksanakan Praktik Kerja Lapangan
+                    pada divisi IT. Mendapatkan pengalaman
+                    mengenai lingkungan kerja dan kegiatan
+                    teknis di bidang teknologi informasi.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">PERSONAL LEARNING</span>
+                <h3>Independent Technical Projects</h3>
+                <p>
+                    Mengembangkan kemampuan melalui
+                    eksperimen jaringan, konfigurasi server,
+                    virtualisasi, dan pengembangan website.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+    <div class="container reveal">
+
+        <p class="section-label">04 / SELECTED WORKS</p>
+        <h2 class="section-title">Recent <span>Projects.</span></h2>
+
+        <p class="section-desc">
+            Beberapa proyek pembelajaran dan eksperimen
+            teknologi yang pernah saya kerjakan.
+        </p>
+
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="server">Server</button>
+            <button class="filter-btn" data-filter="network">Networking</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <div class="project-grid">
+
+            <article class="project-card" data-category="server">
+                <span class="project-number">PROJECT / 01</span>
+                <h3>Debian Web Server</h3>
+                <p>
+                    Eksperimen membangun web server berbasis
+                    Debian Linux dan mengelola layanan
+                    hosting menggunakan aaPanel.
+                </p>
+                <div class="project-tags">
+                    <span>Debian</span>
+                    <span>Apache</span>
+                    <span>aaPanel</span>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="network">
+                <span class="project-number">PROJECT / 02</span>
+                <h3>Local DNS Server</h3>
+                <p>
+                    Mempelajari konfigurasi DNS server
+                    menggunakan BIND9 untuk pengelolaan
+                    domain dan resolusi nama lokal.
+                </p>
+                <div class="project-tags">
+                    <span>Linux</span>
+                    <span>BIND9</span>
+                    <span>DNS</span>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="server">
+                <span class="project-number">PROJECT / 03</span>
+                <h3>Virtualization Lab</h3>
+                <p>
+                    Eksperimen menjalankan virtual machine
+                    dan container Linux untuk memahami
+                    infrastruktur server virtual.
+                </p>
+                <div class="project-tags">
+                    <span>Proxmox</span>
+                    <span>Debian</span>
+                    <span>Virtualization</span>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="web">
+                <span class="project-number">PROJECT / 04</span>
+                <h3>Personal Website</h3>
+                <p>
+                    Membuat website pribadi dengan desain
+                    responsif, navigasi interaktif,
+                    dan pengembangan menggunakan
+                    teknologi web dasar.
+                </p>
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container reveal">
+
+        <div class="contact-box">
+            <p class="section-label">05 / GET IN TOUCH</p>
+
+            <h2>Let's build something <span>meaningful.</span></h2>
+
+            <p>
+                Terbuka untuk berbagi pengetahuan,
+                berdiskusi mengenai teknologi,
+                dan menjalin koneksi profesional.
+            </p>
+
+            <a href="mailto:" class="btn btn-primary" id="emailBtn">
+                Get In Touch ↗
+            </a>
+
+            <p class="contact-note">
+                Email: tambahkan alamat email kamu di kode HTML.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <span>© 2026 <strong>MHD Fadlan Qaddafi.</strong></span>
+        <span>Designed with purpose. Built with passion.</span>
+    </div>
+</footer>
+
+<script>
+
+// MOBILE MENU
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    menuBtn.textContent =
+        navLinks.classList.contains('open') ? '✕' : '☰';
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.textContent = '☰';
+    });
+});
+
+// DARK / LIGHT MODE
+const themeBtn = document.getElementById('themeBtn');
+
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+
+    const isLight = document.body.classList.contains('light');
+
+    themeBtn.textContent = isLight ? '☾' : '☼';
+    document.querySelector('meta[name="theme-color"]')
+        .setAttribute('content', isLight ? '#f5f6f8' : '#101114');
+});
+
+// PROJECT FILTER
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projects = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        filterButtons.forEach(btn =>
+            btn.classList.remove('active')
+        );
+
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        projects.forEach(project => {
+            const category = project.dataset.category;
+
+            if (filter === 'all' || filter === category) {
+                project.classList.remove('hide');
+            } else {
+                project.classList.add('hide');
+            }
+        });
+    });
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+});
+
+// ACTIVE NAVIGATION
+const sections = document.querySelectorAll('main section[id]');
+const navItems = document.querySelectorAll('.nav-links a');
+
+const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navItems.forEach(link => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === '#' + entry.target.id
+                );
+            });
+        }
+    });
+}, {
+    rootMargin: '-30% 0px -60% 0px'
+});
+
+sections.forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// EMAIL SETUP
+// Ganti alamat di bawah dengan email asli kamu.
+const myEmail = "";
+
+const emailBtn = document.getElementById('emailBtn');
+
+emailBtn.addEventListener('click', (event) => {
+    if (!myEmail) {
+        event.preventDefault();
+        alert('Silakan isi alamat email kamu pada variabel myEmail di bagian JavaScript.');
+        return;
+    }
+
+    emailBtn.href = 'mailto:' + myEmail;
+});
+
+</script>
+
+</body>
+</html>
